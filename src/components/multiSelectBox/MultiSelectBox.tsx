@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useMemo, ChangeEvent } from "react";
+import React, { useState, useCallback, useMemo, ChangeEvent, JSX } from "react";
 import "./MultiSelectBox.scss";
-import { IoIosArrowUp } from "react-icons/io";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import useClickOutside from "../../hooks/useClickOutside";
 import toast from "react-hot-toast";
@@ -85,7 +85,7 @@ const MultiSelectBox: React.FC<MultiSelectBoxProps> = ({
             onClick={(e) => e.stopPropagation()}
           />
           <span className={`dropdown-arrow ${isOpen ? "open" : ""}`}>
-            <IoIosArrowUp />
+            <MdOutlineKeyboardArrowUp /> 
           </span>
         </div>
       </div>
