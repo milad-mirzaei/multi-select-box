@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useMemo, ChangeEvent, JSX } from "react";
+import { useState, useCallback, useMemo, ChangeEvent, } from "react";
 import "./MultiSelectBox.scss";
-import { MdOutlineKeyboardArrowUp } from "react-icons/md";
-import { FaCheck } from "react-icons/fa";
 import useClickOutside from "../../hooks/useClickOutside";
 import toast from "react-hot-toast";
+import { FaCheck } from "react-icons/fa";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 interface MultiSelectBoxProps {
   defaultOptions: string[];
@@ -11,11 +11,11 @@ interface MultiSelectBoxProps {
   selectedItems: string[];
 }
 
-const MultiSelectBox: React.FC<MultiSelectBoxProps> = ({
+const MultiSelectBox = ({
   defaultOptions,
   onSelect,
   selectedItems,
-}) => {
+}: MultiSelectBoxProps) => {
   const [selectBoxOptions, setSelectBoxOptions] = useState(defaultOptions);
   const [searchText, setSearchText] = useState("");
   const containerRef = useClickOutside(() => setIsOpen(false));
@@ -85,7 +85,7 @@ const MultiSelectBox: React.FC<MultiSelectBoxProps> = ({
             onClick={(e) => e.stopPropagation()}
           />
           <span className={`dropdown-arrow ${isOpen ? "open" : ""}`}>
-            <MdOutlineKeyboardArrowUp /> 
+            { <>{MdOutlineKeyboardArrowUp({size:20})}</>}
           </span>
         </div>
       </div>
@@ -104,7 +104,7 @@ const MultiSelectBox: React.FC<MultiSelectBoxProps> = ({
                 }}
               >
                 <span className="option-text">{option}</span>
-                {isSelected && <FaCheck size={12} />}
+                {isSelected &&  <>{FaCheck({size:12})}</>}
               </li>
             );
           })}
